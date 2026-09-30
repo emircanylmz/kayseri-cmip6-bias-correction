@@ -24,8 +24,8 @@ def validation_metrics(
     if not np.all(np.isfinite(sim)) or not np.all(np.isfinite(obs)):
         raise ValueError("Doğrulama serileri sonlu değerlerden oluşmalı")
 
-    sim_clim = monthly_climatology(simulated).values
-    obs_clim = monthly_climatology(observed).values
+    sim_clim = monthly_climatology(simulated).to_numpy(dtype=float)
+    obs_clim = monthly_climatology(observed).to_numpy(dtype=float)
     annual_sim = complete_annual_totals(simulated)
     annual_obs = complete_annual_totals(observed)
     annual_sim, annual_obs = annual_sim.align(annual_obs, join="inner")

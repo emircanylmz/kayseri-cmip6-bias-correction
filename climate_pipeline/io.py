@@ -4,7 +4,7 @@ import json
 import os
 import tempfile
 import zipfile
-from collections.abc import Iterable
+from collections.abc import Hashable, Iterable
 from pathlib import Path
 
 import numpy as np
@@ -74,12 +74,15 @@ def find_netcdf_files(path: Path) -> list[Path]:
     return files
 
 
-def _first_existing(names: Iterable[str], available: Iterable[str], kind: str) -> str:
+def _first_existing(
+    names: Iterable[str], available: Iterable[Hashable], kind: str
+) -> str:
     available_set = set(available)
     for name in names:
         if name in available_set:
             return name
-    raise ValueError(f"{kind} bulunamadı. Mevcut adlar: {sorted(available_set)}")
+    available_labels = sorted(str(value) for value in available_set)
+    raise ValueError(f"{kind} bulunamadı. Mevcut adlar: {available_labels}")
 
 
 def _drop_or_reject_extra_dimensions(
@@ -302,7 +305,8 @@ def load_precipitation(path: Path) -> xr.DataArray:
 
 def complete_annual_totals(data: xr.DataArray) -> pd.Series:
     series = data.to_series()
-    grouped = series.groupby(series.index.year)
+    index = pd.DatetimeIndex(series.index)
+    grouped = series.groupby(index.year)
     totals = grouped.sum()
     counts = grouped.count()
     return totals[counts == 12]
@@ -310,4 +314,5 @@ def complete_annual_totals(data: xr.DataArray) -> pd.Series:
 
 def monthly_climatology(data: xr.DataArray) -> pd.Series:
     series = data.to_series()
-    return series.groupby(series.index.month).mean().reindex(range(1, 13))
+    index = pd.DatetimeIndex(series.index)
+    return series.groupby(index.month).mean().reindex(range(1, 13))

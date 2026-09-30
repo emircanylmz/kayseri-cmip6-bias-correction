@@ -28,11 +28,13 @@ class TrendResult:
 def seasonal_totals(data: xr.DataArray, months: tuple[int, ...]) -> pd.Series:
     """Return complete seasonal totals; December belongs to next year's DJF."""
     series = data.to_series().dropna()
-    selected = series[series.index.month.isin(months)]
+    index = pd.DatetimeIndex(series.index)
+    selected = series[index.month.isin(months)]
     if selected.empty:
         return pd.Series(dtype=float)
-    season_year = selected.index.year + (
-        (selected.index.month == 12) & (12 in months) & (1 in months)
+    selected_index = pd.DatetimeIndex(selected.index)
+    season_year = selected_index.year + (
+        (selected_index.month == 12) & (12 in months) & (1 in months)
     ).astype(int)
     frame = pd.DataFrame({"value": selected.values, "season_year": season_year})
     grouped = frame.groupby("season_year")["value"]
