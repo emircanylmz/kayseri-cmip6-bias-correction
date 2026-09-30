@@ -120,6 +120,28 @@ bağımsız 2005–2014 doğrulama dönemi için aşağıdaki iyileşmeler elde 
 Düzeltilmiş SSP245 yıllık trendi `+0.41 mm/yıl` olarak hesaplanmış, ancak
 FDR-düzeltilmiş `p=0.921` olduğundan istatistiksel olarak anlamlı bulunmamıştır.
 
+## Örnek çıktılar
+
+Depoda canlı CDS çalıştırmasından üretilmiş, gizli bilgi içermeyen örnek çıktılar
+bulunur. Ham CDS dosyaları boyut ve yeniden dağıtım gereksinimleri nedeniyle
+depoya eklenmemiştir.
+
+![Bias correction sonuçları](examples/figures/bias_correction_sonuclari.png)
+
+![Trend analizi](examples/figures/trend_analizi.png)
+
+Dosya olarak indirilebilen örnekler:
+
+- [Bağımsız doğrulama tablosu](examples/figures/dogrulama_tablosu.png)
+- [Doğrulama metrikleri](examples/results/validation_metrics.csv)
+- [Trend sonuçları](examples/results/trend_sonuclari.csv)
+- [QDM metadata](examples/results/qdm_metadata.json)
+- [Düzeltilmiş SSP245 NetCDF](examples/data/cmip6_ssp245_qdm_kayseri.nc)
+- [Bağımsız doğrulama NetCDF](examples/data/validation_qdm_kayseri.nc)
+
+Örneklerin kapsamı ve üretim bilgileri için [examples/README.md](examples/README.md)
+dosyasına bakın.
+
 ## Yorumlama sınırları
 
 - Aylık bias correction günlük şiddet/sıklık istatistiklerini düzeltmez.

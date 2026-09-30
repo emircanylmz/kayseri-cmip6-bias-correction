@@ -1,0 +1,25 @@
+{
+  "method": "monthly multiplicative quantile delta mapping",
+  "calibration_period_for_validation": [
+    "1980-01-01",
+    "2004-12-31"
+  ],
+  "independent_validation_period": [
+    "2005-01-01",
+    "2014-12-31"
+  ],
+  "production_baseline_period": [
+    "1980-01-01",
+    "2014-12-31"
+  ],
+  "projection_period": [
+    "2015-01-01",
+    "2049-12-31"
+  ],
+  "wet_threshold_mm_month": 0.1,
+  "notes": [
+    "Her takvim ayı ayrı düzeltilir.",
+    "Gelecek değerler historical maksimumda kırpılmaz.",
+    "Tek model/tek senaryo belirsizliği ayrıca değerlendirilmelidir."
+  ]
+}

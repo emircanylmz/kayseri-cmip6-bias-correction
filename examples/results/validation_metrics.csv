@@ -1,0 +1,11 @@
+,ERA5 referans,CMIP6 ham,CMIP6 QDM
+Ortalama (mm/ay),45.453342,57.042539,48.224530
+Standart sapma (mm/ay),29.431787,53.610166,38.820912
+PBIAS (%),0.000000,25.496907,6.096773
+Aylık klimatoloji RMSE (mm/ay),0.000000,32.501558,11.305537
+Aylık klimatoloji MAE (mm/ay),0.000000,23.469417,9.117997
+Wasserstein uzaklığı (mm/ay),0.000000,16.623560,6.804034
+KS istatistiği,0.000000,0.150000,0.091667
+Q95 farkı (mm/ay),0.000000,68.156583,25.627746
+Yıllık ortalama (mm/yıl),545.440108,684.510464,578.694355
+Yıllık ortalama farkı (mm/yıl),0.000000,139.070356,33.254247
