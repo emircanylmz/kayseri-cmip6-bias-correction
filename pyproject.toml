@@ -1,0 +1,19 @@
+[project]
+name = "kayseri-cmip6-bias-correction"
+version = "1.0.0"
+description = "Kayseri monthly precipitation bias correction and trend analysis"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+  "cdsapi==0.7.7",
+  "cftime==1.6.5",
+  "matplotlib==3.8.4",
+  "netCDF4==1.7.4",
+  "numpy==1.26.4",
+  "pandas==2.2.2",
+  "scipy==1.13.1",
+  "xarray==2023.6.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

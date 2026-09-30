@@ -1,0 +1,24 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.cache/
+.DS_Store
+.venv/
+.idea/
+
+# Credentials and local environment overrides
+.cdsapirc
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Downloaded and generated artifacts
+data/raw/
+data/processed/
+gorseller/*.png
+sonuclar/*.csv
+sonuclar/*.json
